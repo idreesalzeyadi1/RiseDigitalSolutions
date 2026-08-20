@@ -62,9 +62,9 @@ export default function Footer() {
             Get in Touch
           </h4>
           <ul className="space-y-2.5 text-sm text-white/70">
-            <li>+92 3XX XXXXXXX</li>
-            <li>hello@risedigitalsolutions.com</li>
-            <li>Pakistan (Remote-first)</li>
+            <li>+92 3179779764</li>
+            <li>risedigitalsolutions@gmail.com</li>
+            <li>Peshawar, Pakistan (Remote)</li>
           </ul>
         </div>
       </div>
