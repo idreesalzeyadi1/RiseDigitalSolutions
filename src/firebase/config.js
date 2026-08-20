@@ -11,13 +11,13 @@ import { getStorage } from "firebase/storage";
 import { getAnalytics, isSupported } from "firebase/analytics";
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyBaAXcaKtHte73hlBZ0mDEpF3VCYs4-blQ",
-  authDomain: "rise-digital-solutions.firebaseapp.com",
-  projectId: "rise-digital-solutions",
-  storageBucket: "rise-digital-solutions.firebasestorage.app",
-  messagingSenderId: "151399318718",
-  appId: "1:151399318718:web:11cffeaf91206b9f888aef",
-  measurementId: "G-CWT3JBD6EE",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
