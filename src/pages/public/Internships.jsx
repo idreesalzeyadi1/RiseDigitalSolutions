@@ -1,9 +1,13 @@
+import { useSearchParams, Link } from "react-router-dom";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../../firebase/config";
+
 import Icon from "../../components/ui/Icons";
 import Button from "../../components/ui/Button";
 import SectionHeading from "../../components/ui/SectionHeading";
 import FaqAccordion from "../../components/ui/FaqAccordion";
 import {
-  internshipDomains,
+  internshipTracks,
   howItWorksInternship,
   internshipHighlights,
   internshipStats,
@@ -99,25 +103,40 @@ export default function Internships() {
           <SectionHeading
             eyebrow="Domains"
             title={<>Explore Our <span className="brand-gradient-text">Internship Tracks</span></>}
-            desc="Choose from multiple in-demand tech &amp; marketing tracks and start building real-world skills today."
+            desc="Choose from 10+ in-demand tech tracks and start building real-world skills today."
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {internshipDomains.map((d, i) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {internshipTracks.map((track) => (
               <div
-                key={d}
-                className="bg-white border border-surface-alt rounded-2xl overflow-hidden hover:shadow-xl transition-shadow group"
+                key={track.slug}
+                className="bg-white border border-surface-alt rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
               >
-                <div className="h-32 brand-gradient-bg relative flex items-center justify-center">
-                  <span className="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Icon name="briefcase" className="w-7 h-7 text-white" />
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display font-bold text-lg text-navy-900 mb-1.5">{d}</h3>
-                  <p className="text-sm text-navy-600 mb-5">
-                    Real tasks and mentorship for hands-on experience in {d.toLowerCase()}.
-                  </p>
-                  <Button as="link" to="/internships/apply" variant="primary" className="w-full !py-2.5 !text-sm">
+                <Link to={`/internships/${track.slug}`} className="block relative h-48 overflow-hidden bg-navy-950">
+                  <img
+                    src={track.image}
+                    alt={track.title}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent" />
+                </Link>
+
+                <div className="p-5 flex flex-col flex-1 justify-between">
+                  <div>
+                    <Link to={`/internships/${track.slug}`}>
+                      <h3 className="font-display font-bold text-lg text-navy-900 mb-1.5 group-hover:text-brand-600 transition-colors">
+                        {track.title}
+                      </h3>
+                    </Link>
+                    <p className="text-xs text-navy-600 leading-relaxed mb-5 line-clamp-2">
+                      {track.tagline}
+                    </p>
+                  </div>
+
+                  <Button
+                    as="link"
+                    to={`/internships/apply?domain=${encodeURIComponent(track.title)}`}
+                    className="w-full !py-2.5 !text-sm !bg-emerald-600 hover:!bg-emerald-700 !text-white !rounded-xl text-center font-medium shadow-sm transition-colors"
+                  >
                     Apply Now
                   </Button>
                 </div>

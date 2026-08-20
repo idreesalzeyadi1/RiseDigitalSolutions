@@ -11,7 +11,7 @@ export default function ServiceDetail() {
   const service = services.find((s) => s.slug === slug);
 
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [status, setStatus] = useState("idle");
 
   if (!service) return <Navigate to="/services" replace />;
 
@@ -38,18 +38,32 @@ export default function ServiceDetail() {
 
   return (
     <div>
-      <section className="brand-gradient-bg text-white py-16 sm:py-20">
+      <section className="brand-gradient-bg text-white py-12 sm:py-16">
         <div className="container-app">
           <Link to="/services" className="text-sm text-white/70 hover:text-white inline-flex items-center gap-1 mb-6">
             &larr; All Services
           </Link>
-          <span className="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center mb-5">
-            <Icon name={service.icon} className="w-7 h-7" />
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-bold font-display mb-3">{service.title}</h1>
-          <p className="text-white/75 max-w-xl mb-8">{service.tagline}</p>
-          <div className="rounded-3xl overflow-hidden max-w-2xl shadow-2xl">
-            <img src={service.image} alt={service.title} className="w-full h-56 sm:h-72 object-cover" />
+
+          {/* Side-by-Side Layout to fit Square Artworks perfectly */}
+          <div className="grid md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-7">
+              <span className="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center mb-5">
+                <Icon name={service.icon} className="w-7 h-7 text-white" />
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-bold font-display mb-3">{service.title}</h1>
+              <p className="text-white/80 text-lg max-w-xl">{service.tagline}</p>
+            </div>
+
+            {/* Image Card Container */}
+            <div className="md:col-span-5 flex justify-center md:justify-end">
+              <div className="w-full max-w-md rounded-3xl overflow-hidden shadow-2xl bg-white/5 border border-white/15 p-2 sm:p-3 backdrop-blur-sm">
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  className="w-full h-auto object-contain rounded-2xl" 
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -86,7 +100,7 @@ export default function ServiceDetail() {
             </div>
           </div>
 
-          {/* HIRE US FORM - no signup needed */}
+          {/* HIRE US FORM */}
           <div>
             <div className="sticky top-24 bg-white border border-surface-alt rounded-3xl p-7 shadow-lg">
               <h3 className="text-xl font-display font-bold text-navy-900 mb-1">Hire Us for {service.title}</h3>

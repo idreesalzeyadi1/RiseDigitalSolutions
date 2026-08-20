@@ -7,11 +7,16 @@
 // Service images - imported from src/assets/ (Vite processes/optimizes them
 // automatically at build time). To add a new service image, add an import
 // line here and use it below.
-import webImg from "../assets/web.jpg";
+import webImg from "../assets/website.jpg";
 import appImg from "../assets/app.jpg";
-import seoImg from "../assets/seo.jpg";
-import digitalMarketingImg from "../assets/digitalmarketing.jpg";
-
+import seoImg from "../assets/seo1.jpg";
+import digitalMarketingImg from "../assets/digital.jpg";
+import contentWritingImg from "../assets/content.jpg";
+import uiUxImg from "../assets/ui.jpg";
+import digitalmarketing1Img from "../assets/digitalmarketing.jpg";
+import seo1Img from "../assets/seo.jpg";
+import websiteImg from "../assets/web.jpg";
+import app1Img from "../assets/app1.jpg";
 export const services = [
   {
     slug: "web-development",
@@ -39,7 +44,7 @@ export const services = [
     slug: "app-development",
     title: "App Development",
     icon: "smartphone",
-    image: appImg,
+    image: app1Img,
     tagline: "iOS & Android apps that users love",
     description:
       "Native and cross-platform mobile apps focused on both performance and user experience.",
@@ -185,7 +190,7 @@ export const internshipTracks = [
     slug: "web-development",
     title: "Web Development",
     icon: "code",
-    image: webImg,
+    image: websiteImg,
     tagline: "Build real websites with hands-on mentorship",
   },
   {
@@ -199,28 +204,28 @@ export const internshipTracks = [
     slug: "seo",
     title: "SEO",
     icon: "search",
-    image: seoImg,
+    image: seo1Img,
     tagline: "Learn keyword research & optimization by doing",
   },
   {
     slug: "digital-marketing",
     title: "Digital Marketing",
     icon: "megaphone",
-    image: digitalMarketingImg,
+    image: digitalmarketing1Img,
     tagline: "Run real campaigns under expert guidance",
   },
   {
     slug: "ui-ux-design",
     title: "UI/UX Design",
     icon: "layers",
-    image: null,
+    image: uiUxImg,
     tagline: "Design real interfaces with a design mentor",
   },
   {
     slug: "content-writing",
     title: "Content Writing",
     icon: "edit",
-    image: null,
+    image: contentWritingImg,
     tagline: "Write for real brands and grow a portfolio",
   },
 ];
@@ -229,7 +234,7 @@ export const stats = [
   { label: "Projects Delivered", value: "50+" },
   { label: "Happy Clients", value: "40+" },
   { label: "Interns Trained", value: "200+" },
-  { label: "Courses Offered", value: "10+" },
+  { label: "Courses Offered", value: "15+" },
 ];
 
 export const testimonials = [
