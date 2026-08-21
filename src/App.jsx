@@ -15,7 +15,10 @@ import About from "./pages/public/About";
 import Contact from "./pages/public/Contact";
 import Login from "./pages/public/Login";
 import Signup from "./pages/public/Signup";
-import LegalPage from "./pages/public/LegalPage";
+
+// Legal pages
+import Terms from "./pages/public/Terms";
+import Privacy from "./pages/public/Privacy";
 
 // Student
 import StudentDashboard from "./pages/student/StudentDashboard";
@@ -54,10 +57,12 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/terms" element={<LegalPage title="Terms of Use" />} />
-            <Route path="/privacy" element={<LegalPage title="Privacy Policy" />} />
+            
+            {/* UPDATED ROUTES HERE */}
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
 
-            {/* Student portal (signup required, lives under public layout-less dashboard) */}
+            {/* Student portal */}
             <Route
               path="/student/dashboard"
               element={
